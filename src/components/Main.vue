@@ -17,7 +17,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
-    window.addEventListener('touchmove', this.handleScroll);
+    window.removeEventListener('touchmove', this.handleScroll);
   },
   methods: {
 
