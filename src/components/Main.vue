@@ -11,11 +11,13 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('touchmove', this.handleScroll);
     this.getDogs(10);
 
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.addEventListener('touchmove', this.handleScroll);
   },
   methods: {
 
