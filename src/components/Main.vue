@@ -74,7 +74,10 @@ export default {
         }
       };
     },
-
+    clickLoad(){
+      this.loadingSpin = true;
+      setTimeout(() => this.getDogs(10), 5000);
+    },
     lazyLoad(){
       const currentScrollPosition = window.pageYOffset;
 
@@ -85,7 +88,6 @@ export default {
         if ( currentScrollPosition > elementOffsetTop){
 
           document.getElementById(`dog_${element.id}`).src = element.url
-
 
           console.log(`sampai ke ${element.id}`)
         } 
@@ -129,7 +131,7 @@ export default {
           </TransitionGroup>
 
           <div class=" justify-center flex absolute -bottom-16 inset-x-0">
-            <button :class="loadingBtn" @click="getDogs(10)"
+            <button :class="loadingBtn" @click="clickLoad()"
               class="py-1.5 px-6 bg-white font-medium text text-[#492110] rounded-xl shadow-xl transition ease-in-out hover:scale-105 duration-500">
               Load More
             </button>
